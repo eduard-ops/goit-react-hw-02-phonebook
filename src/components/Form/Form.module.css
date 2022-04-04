@@ -1,0 +1,19 @@
+.label {
+  display: flex;
+  flex-direction: column;
+  max-width: 250px;
+}
+
+.form {
+  display: flex;
+  flex-direction: column;
+  border: 2px solid black;
+  max-width: 400px;
+  align-items: flex-start;
+  padding: 20px 0px 20px 30px;
+  margin-bottom: 25px;
+}
+
+form :nth-child(2) {
+  margin-bottom: 20px;
+}
