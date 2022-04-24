@@ -48,13 +48,17 @@ class App extends Component {
     this.setState({ filter: current });
   };
 
-  render() {
+  showContacts() {
     const { filter, contacts } = this.state;
     const normalizedFilter = filter.toLowerCase();
     const visibleContacts = contacts.filter(({ name }) =>
       name.includes(normalizedFilter)
     );
 
+    return visibleContacts;
+  }
+
+  render() {
     return (
       <Container>
         <h1>Phonebook</h1>
@@ -64,7 +68,10 @@ class App extends Component {
         />
         <h2>Contacts</h2>
         <Filter filterItem={this.state.filter} change={this.changeFilter} />
-        <Contacts item={visibleContacts} clickDelete={this.deleteContacts} />
+        <Contacts
+          item={this.showContacts()}
+          clickDelete={this.deleteContacts}
+        />
       </Container>
     );
   }
